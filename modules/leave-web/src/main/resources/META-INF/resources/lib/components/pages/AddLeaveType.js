@@ -8,22 +8,22 @@ function AddLeaveType(){
 	let [leaveName, setLeaveName] = useState("");
 	let [count,setCount]= useState("");
 	
-	 const func=()=>{
+	 const add=()=>{
 	     axios({
 	        method: 'post',
 	        url: 'http://localhost:8080/api/jsonws/leave.leavetype/create-leave-type/leave-code/'+leaveCode+'/leave-name/'+leaveName+'/count/'+count+'/?p_auth='+Liferay.authToken           
 	  
 	  })
-	  .then((res)=> {
-		  console.log(res.data);
+	  .then((result)=> {
+		  console.log(result.data);
 	  })
-	  .catch((err)=> {
-		  console.log(err);
+	  .catch((error)=> {
+		  console.log(error);
 	  })}
 	 var submitform=(e)=>{
 		   //e.preventDefault(); 
 		 if(leaveCode!="" && leaveName!="" && count!="" && leaveCode!=null && leaveName!=null && count!=null){
-		    func();}
+		    add();}
 	 }
 	return(
 			<div>
@@ -39,10 +39,8 @@ function AddLeaveType(){
 	<input  className='form-control' type="text"  placeholder="Enter count" name="count" onChange={(e)=>{setCount(e.target.value)}}></input>	
 	<br></br>
 	<input type="submit" className= "btn btn-primary" value="Submit"></input>
-	
 	</form>
 	</div>
-	
 	);
 }
 export default AddLeaveType;

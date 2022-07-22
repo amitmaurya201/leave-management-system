@@ -2,7 +2,6 @@ import React from "react";
 
 const Home = () => {
 return (
-
 <div className="container">
 <div className="py-4">
 <br></br>
@@ -23,9 +22,7 @@ www.adjecti.com
 <h1 class=" text-center">This is Home Page</h1>
 </div>
 </div>
-
 );
-
 
 };
 export default Home; 

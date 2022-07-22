@@ -2,7 +2,6 @@ import React from "react";
 
 const Navbar = () => {
 return (
-
 <div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 <div class="container-fluid">
@@ -13,17 +12,12 @@ return (
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-link " href="/web/guest/leave-app/-/leaveapplication_INSTANCE_51UKnpHVuQDw/view-employee"><b>Employee</b></a>
-    
-
       <a class="nav-link" href="/web/guest/leave-app/-/leaveapplication_INSTANCE_51UKnpHVuQDw/view-leave-type"><b>Leave Type</b></a>
       <a class="nav-link" href="/web/guest/leave-app/-/leaveapplication_INSTANCE_51UKnpHVuQDw/view-reason"><b> Leave Reason</b></a>
       <a class="nav-link" href="/web/guest/leave-app/-/leaveapplication_INSTANCE_51UKnpHVuQDw/leave-application"><b>Apply Leave</b></a>
       <a class="nav-link" href="/web/guest/leave-app/-/leaveapplication_INSTANCE_51UKnpHVuQDw/schedule-Leave"><b>Schedule Leave</b></a>
-
       <a class="nav-link" href="#"><b>Leave Summary</b></a>
-    
-    </div>
-    
+    </div>    
   </div>
 </div>
 </nav>

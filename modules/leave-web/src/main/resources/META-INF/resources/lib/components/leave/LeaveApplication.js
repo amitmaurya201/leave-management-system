@@ -2,20 +2,17 @@ import React from "react";
 
 const LeaveApplication = () => {
 return (
-
 <div className="container">
 <div className="py-4">
 <h1>Leave Application</h1><br></br>
 <form>
 <label for="exampleInputEmail1"><b>Leave Type</b></label><br></br>
-
 <select class="form-select form-control" aria-label="Default select example">
   <option selected>Select</option>
   <option value="1">Medical Leave</option>
   <option value="2">Maternity Leave</option>
   <option value="3">Sick Leave</option>
   <option value="3">Religious Holidays</option>
-
 </select>
 <br></br>
   <div class="form-group">
@@ -65,8 +62,6 @@ return (
   <option value="2">I have an dentist appointment. ...</option>
   <option value="2">Family member is not well. ...</option>
   <option value="2">Other</option>
-  
-  
 </select>
 <br></br>
 <div class="mb-3">
@@ -80,8 +75,6 @@ return (
   <option value="1">Amit Sir</option>
   <option value="2">Deepanshu Sir</option>
  <option value="2">Divya Ma'am</option>
-    
-  
 </select>
 <br></br>
 <br></br>
@@ -89,10 +82,6 @@ return (
 </form>
 </div>
 </div>
-
-
 );
-
-
 };
 export default LeaveApplication; 

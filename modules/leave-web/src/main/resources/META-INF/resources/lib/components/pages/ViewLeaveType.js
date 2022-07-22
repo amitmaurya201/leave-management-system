@@ -12,25 +12,22 @@ const ViewLeaveForm = () => {
 			method: 'get',
 			url: 'http://localhost:8080/api/jsonws/leave.leavetype/get-leave-type-list/?p_auth=' + Liferay.authToken
 		})
-			.then((res) => {
-				console.log(res.data);
-				setLeaveType(res.data);
+			.then((result) => {
+				console.log(result.data);
+				setLeaveType(result.data);
 			})
-			.catch((err) => {
-				console.log(err);
+			.catch((error) => {
+				console.log(error);
 			})
 	};
 	useEffect(() => {
 
 		getLeaveTypeList();
 	}, []);
-
-
 	function deleteLeave(id)
  {
 		console.log(id)
 ;
-
 		fetch(`http://localhost:8080/api/jsonws/leave.leavetype/delete-leave-type/leave-type-id/${id}/?p_auth=` + Liferay.authToken, {
 			method: 'DELETE'
 		}).then((result) => {
@@ -39,11 +36,7 @@ const ViewLeaveForm = () => {
 				getLeaveTypeList();
 			})
 		})
-
-
 	}
-
-
 	return (<div>
 		{status ? <span>
 		<br></br>
@@ -83,4 +76,3 @@ const ViewLeaveForm = () => {
 	);
 }
 export default ViewLeaveForm;
-

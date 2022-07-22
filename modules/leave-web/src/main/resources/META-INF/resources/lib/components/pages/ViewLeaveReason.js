@@ -2,14 +2,12 @@ import React from "react";
 import axios from 'axios';
 import {useState ,useEffect} from "react";
 import ReactDOM from "react-dom";
-import LeaveReasonForm from './LeaveReasonForm';
+import AddLeaveReason from './AddLeaveReason';
 
-
-const ViewReasonForm = () => {
+const ViewLeaveReason = () => {
 
 const [leaveReason , setLeaveReason]= useState([]);
 const[status,setStatus]=useState(true);
-
 
 useEffect(() => {
     const fetchData =  () => {
@@ -17,12 +15,12 @@ useEffect(() => {
 	        method: 'get',
 	        url: 'http://localhost:8080/api/jsonws/leave.leavereason/get-leave-reason-list/?p_auth='+Liferay.authToken
 	  })
-	  .then((res)=> {
-		  console.log(res.data);
-		  setLeaveReason(res.data);
+	  .then((result)=> {
+		  console.log(result.data);
+		  setLeaveReason(result.data);
 	  })
-	  .catch((err)=> {
-		  console.log(err);
+	  .catch((error)=> {
+		  console.log(error);
 	  })};
 	  fetchData();
 	 
@@ -40,9 +38,7 @@ useEffect(() => {
     		console.warn(resp)
     	})
     		
-    })
-
-    
+    })  
   }
 
 return (<div>
@@ -78,9 +74,8 @@ return (<div>
 		     })
 		}
 		</tbody>
-		</table></span>:<LeaveReasonForm/>}
+		</table></span>:<AddLeaveReason/>}
         </div>	
 );
-
 }
-export default ViewReasonForm; 
+export default ViewLeaveReason; 
