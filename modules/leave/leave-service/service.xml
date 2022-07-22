@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.3.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_3_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="com.adjecti.leave">
+	<namespace>Leave</namespace>
+	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
+	<entity local-service="true" name="Employee" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="employeeId" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="employeeCode" type="String" />
+		<column name="employeeName" type="String" />
+		<column name="dateOfJoining" type="String" />
+		
+
+		<!-- Order -->
+
+	
+		<order by="asc">
+			<order-column name="employeeCode" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="employeeName" return-type="Collection">
+			<finder-column name="employeeName" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
+	</entity>
+	<entity local-service="true" name="LeaveType" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="leaveTypeId" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="leaveCode" type="String" />
+		<column name="leaveName" type="String" />
+		<column name="count" type="int" />
+		
+
+		<!-- Order -->
+
+	
+		<order by="asc">
+			<order-column name="leaveName" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="leaveName" return-type="Collection">
+			<finder-column name="leaveName" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
+	</entity>
+	<entity local-service="true" name="LeaveReason" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="leaveReasonId" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="leaveReasonCode" type="String" />
+		<column name="leaveReasonDescription" type="String" />
+		
+		
+
+		<!-- Order -->
+
+	
+		<order by="asc">
+			<order-column name="leaveReasonDescription" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="leaveReasonDescription" return-type="Collection">
+			<finder-column name="leaveReasonDescription" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
+	</entity>
+	<entity local-service="true" name="LeaveApplication" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="leaveApplicationId" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="leaveReasonId" type="long" />
+		<column name="employeeId" type="long" />
+		<column name="leaveTypeId" type="long" />
+        <column name="startDate" type="String" />
+        <column name="endDate" type="String" />
+        <column name="startInHalfDay" type="boolean"/>
+		<column name="endInHalfDay" type="boolean"/>
+        <column name="actualJoiningDate" type="String" />
+                
+        <column name="remark" type="String" />
+        <column name="documentId" type="long" />
+        <column name="status" type="String" />
+        <column name="reportingManager" type="String" />
+         <column name="joinInHalfDay" type="String" />		
+
+		<!-- Order -->
+
+	
+		<order by="asc">
+			<order-column name="status" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="status" return-type="Collection">
+			<finder-column name="status" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
+	</entity>
+</service-builder>

@@ -1,0 +1,5 @@
+Bundle-Name: leave-web
+Bundle-SymbolicName: com.adjecti.leave
+Bundle-Version: 1.0.0
+Export-Package: com.adjecti.leave.constants
+Web-ContextPath: /leave-web

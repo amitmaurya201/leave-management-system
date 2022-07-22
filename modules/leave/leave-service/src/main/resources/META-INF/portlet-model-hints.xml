@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.adjecti.leave.model.Employee">
+		<field name="uuid" type="String" />
+		<field name="employeeId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="employeeCode" type="String" />
+		<field name="employeeName" type="String" />
+		<field name="dateOfJoining" type="String" />
+	</model>
+	<model name="com.adjecti.leave.model.LeaveApplication">
+		<field name="uuid" type="String" />
+		<field name="leaveApplicationId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="leaveReasonId" type="long" />
+		<field name="employeeId" type="long" />
+		<field name="leaveTypeId" type="long" />
+		<field name="startDate" type="String" />
+		<field name="endDate" type="String" />
+		<field name="startInHalfDay" type="boolean" />
+		<field name="endInHalfDay" type="boolean" />
+		<field name="actualJoiningDate" type="String" />
+		<field name="remark" type="String" />
+		<field name="documentId" type="long" />
+		<field name="status" type="String" />
+		<field name="reportingManager" type="String" />
+		<field name="joinInHalfDay" type="String" />
+	</model>
+	<model name="com.adjecti.leave.model.LeaveReason">
+		<field name="uuid" type="String" />
+		<field name="leaveReasonId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="leaveReasonCode" type="String" />
+		<field name="leaveReasonDescription" type="String" />
+	</model>
+	<model name="com.adjecti.leave.model.LeaveType">
+		<field name="uuid" type="String" />
+		<field name="leaveTypeId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="leaveCode" type="String" />
+		<field name="leaveName" type="String" />
+		<field name="count" type="int" />
+	</model>
+</model-hints>
