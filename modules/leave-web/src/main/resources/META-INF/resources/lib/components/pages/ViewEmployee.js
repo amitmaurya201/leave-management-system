@@ -40,22 +40,13 @@ function handleRemove(id)
    		console.warn(resp)
    	})
    		
-   })
-
-   
+   })   
  }
 
-
-
-
-
-
-return (<div>
-		
+return (<div>	
 		{status?<span>
 
 		<br></br><button type="button" onClick={()=>{setStatus(false)}} className="btn btn-info">Add Employee</button><br></br>
-
 		<br></br><table className="table table-bordered">
 <thead className="thead-dark">
   <tr>
@@ -88,6 +79,5 @@ return (<div>
 		</table></span>:<AddEmployee/>}
         </div>	
 );
-
 }
 export default ViewEmployee; 

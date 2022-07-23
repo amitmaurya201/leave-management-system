@@ -1,12 +1,10 @@
 import React from 'react';
 import {useState} from 'react';
 import axios from 'axios';
-import ViewReasonForm from './ViewReasonForm';
-function LeaveReasonForm() {
+function AddLeaveReason() {
 	
 	let[leaveReasonCode, setLeaveResonCode]=useState("");
-	let[leaveReasonDescription,setLeaveReasonDescription]=useState("");
-	
+	let[leaveReasonDescription,setLeaveReasonDescription]=useState("");	
 	
 	const leavefunction=()=>{
 		axios({
@@ -14,12 +12,12 @@ function LeaveReasonForm() {
 			url:'http://localhost:8080/api/jsonws/leave.leavereason/add-leave-reason-details/reason-code/'+leaveReasonCode+'/reason-des/'+leaveReasonDescription+'/?p_auth='+Liferay.authToken
 			
 		})
-		.then((res)=>	{
-			console.log(res.data);
+		.then((result)=>	{
+			console.log(result.data);
 			
 		})
 		.catch((err)=>{
-			console.log(res.data);
+			console.log(result.data);
 		})}
 	
 	const submitForm=(e)=>{
@@ -29,10 +27,7 @@ function LeaveReasonForm() {
 		}
 	}
 		
-  
   return (<div>
-		
-		  
     <div className='App'>
 		  <h1>Add Leave Reason Form</h1><br></br>
     <form onSubmit={submitForm}>
@@ -53,5 +48,4 @@ function LeaveReasonForm() {
     </div></div>
   );
 }
-  
-export default LeaveReasonForm;
+export default AddLeaveReason;

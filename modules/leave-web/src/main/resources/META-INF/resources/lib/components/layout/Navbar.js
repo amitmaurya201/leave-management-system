@@ -2,7 +2,6 @@ import React from "react";
 
 const Navbar = () => {
 return (
-
 <div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 <div class="container-fluid">
@@ -12,6 +11,7 @@ return (
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
+<<<<<<< HEAD:modules/leave-web/src/main/resources/META-INF/resources/lib/components/Navbar.js
       <a class="nav-link " href="/web/guest/leave-management/-/leaveapplication_INSTANCE_HoUXgLr2V2n0/view-employee"><b>Employee</b></a>
     
 
@@ -20,10 +20,15 @@ return (
       <a class="nav-link" href="/web/guest/leave-management/-/leaveapplication_INSTANCE_HoUXgLr2V2n0/leave-application"><b>Apply Leave</b></a>
       <a class="nav-link" href="/web/guest/leave-management/-/leaveapplication_INSTANCE_HoUXgLr2V2n0/schedule-Leave"><b>Schedule Leave</b></a>
 
+=======
+      <a class="nav-link " href="/web/guest/leave-app/-/leaveapplication_INSTANCE_51UKnpHVuQDw/view-employee"><b>Employee</b></a>
+      <a class="nav-link" href="/web/guest/leave-app/-/leaveapplication_INSTANCE_51UKnpHVuQDw/view-leave-type"><b>Leave Type</b></a>
+      <a class="nav-link" href="/web/guest/leave-app/-/leaveapplication_INSTANCE_51UKnpHVuQDw/view-reason"><b> Leave Reason</b></a>
+      <a class="nav-link" href="/web/guest/leave-app/-/leaveapplication_INSTANCE_51UKnpHVuQDw/leave-application"><b>Apply Leave</b></a>
+      <a class="nav-link" href="/web/guest/leave-app/-/leaveapplication_INSTANCE_51UKnpHVuQDw/schedule-Leave"><b>Schedule Leave</b></a>
+>>>>>>> 6eab9564145cf31c023e49b6bac529676942242b:modules/leave-web/src/main/resources/META-INF/resources/lib/components/layout/Navbar.js
       <a class="nav-link" href="#"><b>Leave Summary</b></a>
-    
-    </div>
-    
+    </div>    
   </div>
 </div>
 </nav>
