@@ -22,12 +22,12 @@ function App() {
 
   <Routes>
 
-    <Route exact path="/web/guest/leave-app/-/leaveapplication_INSTANCE_51UKnpHVuQDw/homes" element={<Home />}></Route>
-    <Route exact path="/web/guest/leave-app/-/leaveapplication_INSTANCE_51UKnpHVuQDw/view-employee" element={<ViewEmployee />}></Route>
-    <Route exact path="/web/guest/leave-app/-/leaveapplication_INSTANCE_51UKnpHVuQDw/leave-application" element={<LeaveApplication />}></Route>
-    <Route exact path="/web/guest/leave-app/-/leaveapplication_INSTANCE_51UKnpHVuQDw/view-reason" element={<ViewReasonForm />}></Route>
-    <Route exact path="/web/guest/leave-app/-/leaveapplication_INSTANCE_51UKnpHVuQDw/view-leave-type" element={<ViewLeaveForm />}></Route>
-    <Route exact path="/web/guest/leave-app/-/leaveapplication_INSTANCE_51UKnpHVuQDw/schedule-Leave" element={<ScheduleLeave />}></Route>
+    <Route exact path="/web/guest/leave-management/-/leaveapplication_INSTANCE_HoUXgLr2V2n0/homes" element={<Home />}></Route>
+    <Route exact path="/web/guest/leave-management/-/leaveapplication_INSTANCE_HoUXgLr2V2n0/view-employee" element={<ViewEmployee />}></Route>
+    <Route exact path="/web/guest/leave-management/-/leaveapplication_INSTANCE_HoUXgLr2V2n0/leave-application" element={<LeaveApplication />}></Route>
+    <Route exact path="/web/guest/leave-management/-/leaveapplication_INSTANCE_HoUXgLr2V2n0/view-reason" element={<ViewReasonForm />}></Route>
+    <Route exact path="/web/guest/leave-management/-/leaveapplication_INSTANCE_HoUXgLr2V2n0/view-leave-type" element={<ViewLeaveForm />}></Route>
+    <Route exact path="/web/guest/leave-management/-/leaveapplication_INSTANCE_HoUXgLr2V2n0/schedule-Leave" element={<ScheduleLeave />}></Route>
 
      
     </Routes>
