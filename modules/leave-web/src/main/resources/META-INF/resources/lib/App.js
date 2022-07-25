@@ -19,6 +19,7 @@ function App() {
   <div className="App">	
   <Navbar/>
   <Routes>
+
     <Route exact path="/web/guest/leave-app/-/leaveapplication_INSTANCE_1BuZmwhraoDu/homes" element={<Home />}></Route>
     <Route exact path="/web/guest/leave-app/-/leaveapplication_INSTANCE_1BuZmwhraoDu/view-employee" element={<ViewEmployee />}></Route>
     <Route exact path="/web/guest/leave-app/-/leaveapplication_INSTANCE_1BuZmwhraoDu/leave-application" element={<LeaveApplication />}></Route>
@@ -26,7 +27,6 @@ function App() {
     <Route exact path="/web/guest/leave-app/-/leaveapplication_INSTANCE_1BuZmwhraoDu/view-leave-type" element={<ViewLeaveType />}></Route>
     <Route exact path="/web/guest/leave-app/-/leaveapplication_INSTANCE_1BuZmwhraoDu/schedule-Leave" element={<ScheduleLeave />}></Route>
     <Route exact path="/web/guest/leave-app/-/leaveapplication_INSTANCE_1BuZmwhraoDu/dropdown" element={<DropDown />}></Route>
-   
     </Routes>
   </div>
   </Router>
