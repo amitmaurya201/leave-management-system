@@ -39,7 +39,8 @@ const DropDown = () => {
 			)})
 			}
 			</select>
-			
+			<button type="button" class="btn btn-danger"  >Delete</button>
+
 			
 			</div>
 	);
