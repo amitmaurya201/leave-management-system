@@ -9,7 +9,6 @@ const ViewLeaveReason = () => {
 const [leaveReason , setLeaveReason]= useState([]);
 const[status,setStatus]=useState(true);
 
-useEffect(() => {
     const fetchData =  () => {
   axios({
 	        method: 'get',
@@ -22,25 +21,30 @@ useEffect(() => {
 	  .catch((error)=> {
 		  console.log(error);
 	  })};
-	  fetchData();
+	useEffect(() => {
+
+		fetchData();
+
 	 
    },[]);
 
- function handleRemove(id)
- {
-	console.log(id)
-;
-  
+ function deleteReason(id) {
+	console.log(id);
+
+	 let text1 = "Are you sure to delete ?";
+     if(confirm(text1)==true){
+	
     fetch(`http://localhost:8080/api/jsonws/leave.leavereason/delete-leave-reason/leave-reason-id/${id}/?p_auth=`+Liferay.authToken,{
     	method:'DELETE'
     }).then((result)=>{
     	result.json().then((resp)=>{
-    		console.warn(resp)
+			console.warn(resp)
+				  fetchData();
     	})
     		
     })  
   }
-
+}
 return (<div>
 		
 		{status?<span>
@@ -65,7 +69,7 @@ return (<div>
 				    <td>{index+1}</td>
 				    <td>{leave.leaveReasonCode}</td>
 				    <td>{leave.leaveReasonDescription}</td>
-				    <td><button type="button" class="btn btn-danger" onClick={()=>{handleRemove(leave.leaveReasonId)}} >Delete</button>
+				    <td><button type="button" class="btn btn-danger" onClick={()=>{deleteReason(leave.leaveReasonId)}} >Delete</button>
 				    <br></br>
 				    <br></br>
 				    <button type="button" class="btn btn-primary">Edit</button></td>
@@ -78,4 +82,4 @@ return (<div>
         </div>	
 );
 }
-export default ViewLeaveReason; 
+export default ViewLeaveReason;
