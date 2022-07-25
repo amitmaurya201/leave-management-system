@@ -24,10 +24,10 @@ const ViewLeaveForm = () => {
 
 		getLeaveTypeList();
 	}, []);
-	function deleteLeave(id)
- {
-		console.log(id)
-;
+	function deleteLeave(id){
+		 let text = "Are you sure to delete ?";
+     if(confirm(text)==true){
+		console.log(id);
 		fetch(`http://localhost:8080/api/jsonws/leave.leavetype/delete-leave-type/leave-type-id/${id}/?p_auth=` + Liferay.authToken, {
 			method: 'DELETE'
 		}).then((result) => {
@@ -37,6 +37,7 @@ const ViewLeaveForm = () => {
 			})
 		})
 	}
+}
 	return (<div>
 		{status ? <span>
 		<br></br>
