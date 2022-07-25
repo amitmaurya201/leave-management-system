@@ -1,23 +1,81 @@
 import React from "react";
+import axios from 'axios';
+import { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
+
+
+
+
 
 const LeaveApplication = () => {
-return (
+
+
+	
+	const [leaveType, setLeaveType] = useState([]);
+	const getLeaveTypeList = () => {
+		axios({
+			method: 'get',
+			url: 'http://localhost:8080/api/jsonws/leave.leavetype/get-leave-type-list/?p_auth=' + Liferay.authToken
+		})
+			.then((result) => {
+				console.log(result.data);
+			
+				setLeaveType(result.data);
+			})
+			.catch((error) => {
+				console.log(error);
+			})
+	};
+	useEffect(() => {
+
+		getLeaveTypeList();
+	}, []);
+
+
+	const [leaveReason , setLeaveReason]= useState([]);
+
+
+	useEffect(() => {
+	    const fetchData =  () => {
+	  axios({
+		        method: 'get',
+		        url: 'http://localhost:8080/api/jsonws/leave.leavereason/get-leave-reason-list/?p_auth='+Liferay.authToken
+		  })
+		  .then((result)=> {
+			  console.log(result.data);
+			  setLeaveReason(result.data);
+		  })
+		  .catch((error)=> {
+			  console.log(error);
+		  })};
+		  fetchData();
+		 
+	   },[]);
+	
+	const [selects,setSelects] = useState();
+	
+	
+	return (
 <div className="container">
 <div className="py-4">
 <h1>Leave Application</h1><br></br>
 <form>
 <label for="exampleInputEmail1"><b>Leave Type</b></label><br></br>
-<select class="form-select form-control" aria-label="Default select example">
+
+<select class="form-select form-control" value={selects} onChange={e=>setSelects(e.target.value)} > 
   <option selected>Select</option>
-  <option value="1">Medical Leave</option>
-  <option value="2">Maternity Leave</option>
-  <option value="3">Sick Leave</option>
-  <option value="3">Religious Holidays</option>
+  {leaveType.map((leave, index) => {
+		return (
+
+				<option value={leave.count}>{leave.leaveName}</option>				
+	)})
+	}
+  
 </select>
 <br></br>
   <div class="form-group">
     <label for="exampleInputEmail1"><b>Available Leaves</b></label>
-    <input type="text" class="form-control" id="exampleInputEmail1"  placeholder="0"readOnly/>
+    <input type="text" class="form-control" id="exampleInputEmail1"  placeholder={selects} readOnly/>
   </div><br></br>
   <div class="form-group">
     <label for="exampleInputPassword1"><b>Availed Leaves</b></label>
@@ -58,10 +116,13 @@ return (
 
 <select class="form-select form-control" aria-label="Default select example">
   <option selected>Select</option>
-  <option value="1">Sir, I am not well today. ...</option>
-  <option value="2">I have an dentist appointment. ...</option>
-  <option value="2">Family member is not well. ...</option>
-  <option value="2">Other</option>
+  {leaveReason.map((leave, index) => {
+		return (
+
+				<option>{leave.leaveReasonDescription}</option>				
+	)})
+	}
+  
 </select>
 <br></br>
 <div class="mb-3">

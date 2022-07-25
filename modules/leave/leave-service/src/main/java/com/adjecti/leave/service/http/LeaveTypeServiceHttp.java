@@ -54,7 +54,7 @@ public class LeaveTypeServiceHttp {
 
 	public static com.adjecti.leave.model.LeaveType createLeaveType(
 			HttpPrincipal httpPrincipal, String leaveCode, String leaveName,
-			int count)
+			float count)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			   com.liferay.portal.kernel.exception.SystemException {
 
@@ -210,7 +210,7 @@ public class LeaveTypeServiceHttp {
 
 	public static com.adjecti.leave.model.LeaveType updateLeaveType(
 			HttpPrincipal httpPrincipal, String leaveCode, long leaveTypeId,
-			String leaveName, int count)
+			String leaveName, float count)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			   com.liferay.portal.kernel.exception.SystemException {
 
@@ -260,7 +260,7 @@ public class LeaveTypeServiceHttp {
 	private static Log _log = LogFactoryUtil.getLog(LeaveTypeServiceHttp.class);
 
 	private static final Class<?>[] _createLeaveTypeParameterTypes0 =
-		new Class[] {String.class, String.class, int.class};
+		new Class[] {String.class, String.class, float.class};
 	private static final Class<?>[] _getLeaveTypeListParameterTypes1 =
 		new Class[] {};
 	private static final Class<?>[] _getLeaveTypeByIdParameterTypes2 =
@@ -268,6 +268,6 @@ public class LeaveTypeServiceHttp {
 	private static final Class<?>[] _deleteLeaveTypeParameterTypes3 =
 		new Class[] {long.class};
 	private static final Class<?>[] _updateLeaveTypeParameterTypes4 =
-		new Class[] {String.class, long.class, String.class, int.class};
+		new Class[] {String.class, long.class, String.class, float.class};
 
 }

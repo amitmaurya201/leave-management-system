@@ -14,13 +14,18 @@
 
 package com.adjecti.leave.service;
 
+import com.adjecti.leave.model.LeaveApplication;
+
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebService;
 import com.liferay.portal.kernel.security.access.control.AccessControlled;
 import com.liferay.portal.kernel.service.BaseService;
 import com.liferay.portal.kernel.transaction.Isolation;
+import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
+
+import java.util.List;
 
 import org.osgi.annotation.versioning.ProviderType;
 
@@ -47,6 +52,14 @@ public interface LeaveApplicationService extends BaseService {
 	 *
 	 * Never modify this interface directly. Add custom service methods to <code>com.adjecti.leave.service.impl.LeaveApplicationServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the leave application remote service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link LeaveApplicationServiceUtil} if injection and service tracking are not available.
 	 */
+	public LeaveApplication addLeaveApplicationDetail(
+		long leaveReasonId, long employeeId, long leaveTypeId, String startDate,
+		String endDate, boolean startInHalfDay, boolean endInHalfDay,
+		String actualJoiningDate, String remark, long documentId, String status,
+		String reportingManager, String joinInHalfDay);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<LeaveApplication> getLeaveApplicationList();
 
 	/**
 	 * Returns the OSGi service identifier.

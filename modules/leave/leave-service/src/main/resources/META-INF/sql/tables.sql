@@ -60,5 +60,5 @@ create table Leave_LeaveType (
 	modifiedDate DATE null,
 	leaveCode VARCHAR(75) null,
 	leaveName VARCHAR(75) null,
-	count INTEGER
+	count DOUBLE
 );

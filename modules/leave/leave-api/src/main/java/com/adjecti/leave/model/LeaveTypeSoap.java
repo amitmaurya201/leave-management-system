@@ -177,11 +177,11 @@ public class LeaveTypeSoap implements Serializable {
 		_leaveName = leaveName;
 	}
 
-	public int getCount() {
+	public float getCount() {
 		return _count;
 	}
 
-	public void setCount(int count) {
+	public void setCount(float count) {
 		_count = count;
 	}
 
@@ -195,6 +195,6 @@ public class LeaveTypeSoap implements Serializable {
 	private Date _modifiedDate;
 	private String _leaveCode;
 	private String _leaveName;
-	private int _count;
+	private float _count;
 
 }

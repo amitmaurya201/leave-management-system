@@ -14,6 +14,10 @@
 
 package com.adjecti.leave.service;
 
+import com.adjecti.leave.model.LeaveApplication;
+
+import java.util.List;
+
 /**
  * Provides the remote service utility for LeaveApplication. This utility wraps
  * <code>com.adjecti.leave.service.impl.LeaveApplicationServiceImpl</code> and is an
@@ -33,13 +37,28 @@ public class LeaveApplicationServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.adjecti.leave.service.impl.LeaveApplicationServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
+	public static LeaveApplication addLeaveApplicationDetail(
+		long leaveReasonId, long employeeId, long leaveTypeId, String startDate,
+		String endDate, boolean startInHalfDay, boolean endInHalfDay,
+		String actualJoiningDate, String remark, long documentId, String status,
+		String reportingManager, String joinInHalfDay) {
+
+		return getService().addLeaveApplicationDetail(
+			leaveReasonId, employeeId, leaveTypeId, startDate, endDate,
+			startInHalfDay, endInHalfDay, actualJoiningDate, remark, documentId,
+			status, reportingManager, joinInHalfDay);
+	}
+
+	public static List<LeaveApplication> getLeaveApplicationList() {
+		return getService().getLeaveApplicationList();
+	}
 
 	/**
 	 * Returns the OSGi service identifier.
 	 *
 	 * @return the OSGi service identifier
 	 */
-	public static java.lang.String getOSGiServiceIdentifier() {
+	public static String getOSGiServiceIdentifier() {
 		return getService().getOSGiServiceIdentifier();
 	}
 

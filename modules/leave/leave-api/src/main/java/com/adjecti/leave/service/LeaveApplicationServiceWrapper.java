@@ -33,6 +33,26 @@ public class LeaveApplicationServiceWrapper
 		_leaveApplicationService = leaveApplicationService;
 	}
 
+	@Override
+	public com.adjecti.leave.model.LeaveApplication addLeaveApplicationDetail(
+		long leaveReasonId, long employeeId, long leaveTypeId, String startDate,
+		String endDate, boolean startInHalfDay, boolean endInHalfDay,
+		String actualJoiningDate, String remark, long documentId, String status,
+		String reportingManager, String joinInHalfDay) {
+
+		return _leaveApplicationService.addLeaveApplicationDetail(
+			leaveReasonId, employeeId, leaveTypeId, startDate, endDate,
+			startInHalfDay, endInHalfDay, actualJoiningDate, remark, documentId,
+			status, reportingManager, joinInHalfDay);
+	}
+
+	@Override
+	public java.util.List<com.adjecti.leave.model.LeaveApplication>
+		getLeaveApplicationList() {
+
+		return _leaveApplicationService.getLeaveApplicationList();
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *

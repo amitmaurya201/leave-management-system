@@ -50,7 +50,7 @@ const ViewLeaveForm = () => {
 						<th>S.No</th>
 						<th>LeaveCode</th>
 						<th>LeaveName</th>
-						<th>Leaves Allowed</th>
+						<th>Leaves Allowed (Monthly)</th>
 						<th>Action</th>
 					</tr>
 				</thead>

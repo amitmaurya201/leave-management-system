@@ -120,7 +120,7 @@ public class LeaveTypeWrapper
 			setLeaveName(leaveName);
 		}
 
-		Integer count = (Integer)attributes.get("count");
+		Float count = (Float)attributes.get("count");
 
 		if (count != null) {
 			setCount(count);
@@ -143,7 +143,7 @@ public class LeaveTypeWrapper
 	 * @return the count of this leave type
 	 */
 	@Override
-	public int getCount() {
+	public float getCount() {
 		return model.getCount();
 	}
 
@@ -278,7 +278,7 @@ public class LeaveTypeWrapper
 	 * @param count the count of this leave type
 	 */
 	@Override
-	public void setCount(int count) {
+	public void setCount(float count) {
 		model.setCount(count);
 	}
 

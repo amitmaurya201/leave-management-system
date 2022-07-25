@@ -60,6 +60,6 @@
 		<field name="modifiedDate" type="Date" />
 		<field name="leaveCode" type="String" />
 		<field name="leaveName" type="String" />
-		<field name="count" type="int" />
+		<field name="count" type="float" />
 	</model>
 </model-hints>

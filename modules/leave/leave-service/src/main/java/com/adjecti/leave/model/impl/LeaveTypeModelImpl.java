@@ -81,7 +81,7 @@ public class LeaveTypeModelImpl
 		{"userId", Types.BIGINT}, {"userName", Types.VARCHAR},
 		{"createDate", Types.TIMESTAMP}, {"modifiedDate", Types.TIMESTAMP},
 		{"leaveCode", Types.VARCHAR}, {"leaveName", Types.VARCHAR},
-		{"count", Types.INTEGER}
+		{"count", Types.FLOAT}
 	};
 
 	public static final Map<String, Integer> TABLE_COLUMNS_MAP =
@@ -98,11 +98,11 @@ public class LeaveTypeModelImpl
 		TABLE_COLUMNS_MAP.put("modifiedDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("leaveCode", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("leaveName", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("count", Types.INTEGER);
+		TABLE_COLUMNS_MAP.put("count", Types.FLOAT);
 	}
 
 	public static final String TABLE_SQL_CREATE =
-		"create table Leave_LeaveType (uuid_ VARCHAR(75) null,leaveTypeId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,leaveCode VARCHAR(75) null,leaveName VARCHAR(75) null,count INTEGER)";
+		"create table Leave_LeaveType (uuid_ VARCHAR(75) null,leaveTypeId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,leaveCode VARCHAR(75) null,leaveName VARCHAR(75) null,count DOUBLE)";
 
 	public static final String TABLE_SQL_DROP = "drop table Leave_LeaveType";
 
@@ -369,7 +369,7 @@ public class LeaveTypeModelImpl
 			(BiConsumer<LeaveType, String>)LeaveType::setLeaveName);
 		attributeGetterFunctions.put("count", LeaveType::getCount);
 		attributeSetterBiConsumers.put(
-			"count", (BiConsumer<LeaveType, Integer>)LeaveType::setCount);
+			"count", (BiConsumer<LeaveType, Float>)LeaveType::setCount);
 
 		_attributeGetterFunctions = Collections.unmodifiableMap(
 			attributeGetterFunctions);
@@ -608,12 +608,12 @@ public class LeaveTypeModelImpl
 
 	@JSON
 	@Override
-	public int getCount() {
+	public float getCount() {
 		return _count;
 	}
 
 	@Override
-	public void setCount(int count) {
+	public void setCount(float count) {
 		if (_columnOriginalValues == Collections.EMPTY_MAP) {
 			_setColumnOriginalValues();
 		}
@@ -915,7 +915,7 @@ public class LeaveTypeModelImpl
 	private boolean _setModifiedDate;
 	private String _leaveCode;
 	private String _leaveName;
-	private int _count;
+	private float _count;
 
 	public <T> T getColumnValue(String columnName) {
 		columnName = _attributeNames.getOrDefault(columnName, columnName);

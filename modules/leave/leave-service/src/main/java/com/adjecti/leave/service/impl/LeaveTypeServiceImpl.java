@@ -47,7 +47,7 @@ import org.osgi.service.component.annotations.Component;
 	service = AopService.class
 )
 public class LeaveTypeServiceImpl extends LeaveTypeServiceBaseImpl {
-	public LeaveType createLeaveType(String leaveCode, String leaveName, int count)
+	public LeaveType createLeaveType(String leaveCode, String leaveName, float count)
 			throws SystemException, PortalException {
 
 		long leaveTypeId = counterLocalService.increment(LeaveType.class.getName());
@@ -82,7 +82,7 @@ public class LeaveTypeServiceImpl extends LeaveTypeServiceBaseImpl {
 	// update LeaveType
 
 	public LeaveType updateLeaveType(String leaveCode,long leaveTypeId,
-            String leaveName,int count) throws PortalException,
+            String leaveName,float count) throws PortalException,
             SystemException {
         LeaveType leaveType = leaveTypeLocalService.getLeaveType(leaveTypeId);
        

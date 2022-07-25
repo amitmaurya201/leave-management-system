@@ -35,7 +35,7 @@ function AddLeaveType(){
 	 <label>LeaveName</label>
 	<input type="text" className='form-control'  placeholder="Enter LeaveName" name="leaveName" onChange={(e)=>{setLeaveName(e.target.value)}} required></input>
 	<br></br>
-	 <label>Count</label>
+	 <label>Count (Monthly)</label>
 	<input  className='form-control' type="text"  placeholder="Enter count" name="count" onChange={(e)=>{setCount(e.target.value)}}></input>	
 	<br></br>
 	<input type="submit" className= "btn btn-primary" value="Submit"></input>

@@ -41,7 +41,7 @@ public class LeaveTypeServiceUtil {
 	 * Never modify this class directly. Add custom service methods to <code>com.adjecti.leave.service.impl.LeaveTypeServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
 	public static LeaveType createLeaveType(
-			String leaveCode, String leaveName, int count)
+			String leaveCode, String leaveName, float count)
 		throws PortalException, SystemException {
 
 		return getService().createLeaveType(leaveCode, leaveName, count);
@@ -73,7 +73,7 @@ public class LeaveTypeServiceUtil {
 	}
 
 	public static LeaveType updateLeaveType(
-			String leaveCode, long leaveTypeId, String leaveName, int count)
+			String leaveCode, long leaveTypeId, String leaveName, float count)
 		throws PortalException, SystemException {
 
 		return getService().updateLeaveType(

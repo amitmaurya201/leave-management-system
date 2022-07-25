@@ -166,7 +166,7 @@ public class LeaveTypeCacheModel
 		leaveCode = objectInput.readUTF();
 		leaveName = objectInput.readUTF();
 
-		count = objectInput.readInt();
+		count = objectInput.readFloat();
 	}
 
 	@Override
@@ -210,7 +210,7 @@ public class LeaveTypeCacheModel
 			objectOutput.writeUTF(leaveName);
 		}
 
-		objectOutput.writeInt(count);
+		objectOutput.writeFloat(count);
 	}
 
 	public String uuid;
@@ -223,6 +223,6 @@ public class LeaveTypeCacheModel
 	public long modifiedDate;
 	public String leaveCode;
 	public String leaveName;
-	public int count;
+	public float count;
 
 }

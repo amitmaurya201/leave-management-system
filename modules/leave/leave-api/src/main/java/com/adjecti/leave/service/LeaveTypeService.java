@@ -53,7 +53,7 @@ public interface LeaveTypeService extends BaseService {
 	 * Never modify this interface directly. Add custom service methods to <code>com.adjecti.leave.service.impl.LeaveTypeServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the leave type remote service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link LeaveTypeServiceUtil} if injection and service tracking are not available.
 	 */
 	public LeaveType createLeaveType(
-			String leaveCode, String leaveName, int count)
+			String leaveCode, String leaveName, float count)
 		throws PortalException, SystemException;
 
 	public void deleteLeaveType(long leaveTypeId) throws PortalException;
@@ -72,7 +72,7 @@ public interface LeaveTypeService extends BaseService {
 	public String getOSGiServiceIdentifier();
 
 	public LeaveType updateLeaveType(
-			String leaveCode, long leaveTypeId, String leaveName, int count)
+			String leaveCode, long leaveTypeId, String leaveName, float count)
 		throws PortalException, SystemException;
 
 }

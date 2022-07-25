@@ -14,13 +14,22 @@
 
 package com.adjecti.leave.service.http;
 
+import com.adjecti.leave.service.LeaveApplicationServiceUtil;
+
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.security.auth.HttpPrincipal;
+import com.liferay.portal.kernel.service.http.TunnelUtil;
+import com.liferay.portal.kernel.util.MethodHandler;
+import com.liferay.portal.kernel.util.MethodKey;
+
 /**
  * Provides the HTTP utility for the
- * <code>com.adjecti.leave.service.LeaveApplicationServiceUtil</code> service
+ * <code>LeaveApplicationServiceUtil</code> service
  * utility. The
  * static methods of this class calls the same methods of the service utility.
  * However, the signatures are different because it requires an additional
- * <code>com.liferay.portal.kernel.security.auth.HttpPrincipal</code> parameter.
+ * <code>HttpPrincipal</code> parameter.
  *
  * <p>
  * The benefits of using the HTTP utility is that it is fast and allows for
@@ -42,4 +51,88 @@ package com.adjecti.leave.service.http;
  * @generated
  */
 public class LeaveApplicationServiceHttp {
+
+	public static com.adjecti.leave.model.LeaveApplication
+		addLeaveApplicationDetail(
+			HttpPrincipal httpPrincipal, long leaveReasonId, long employeeId,
+			long leaveTypeId, String startDate, String endDate,
+			boolean startInHalfDay, boolean endInHalfDay,
+			String actualJoiningDate, String remark, long documentId,
+			String status, String reportingManager, String joinInHalfDay) {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				LeaveApplicationServiceUtil.class, "addLeaveApplicationDetail",
+				_addLeaveApplicationDetailParameterTypes0);
+
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, leaveReasonId, employeeId, leaveTypeId, startDate,
+				endDate, startInHalfDay, endInHalfDay, actualJoiningDate,
+				remark, documentId, status, reportingManager, joinInHalfDay);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (com.adjecti.leave.model.LeaveApplication)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	public static java.util.List<com.adjecti.leave.model.LeaveApplication>
+		getLeaveApplicationList(HttpPrincipal httpPrincipal) {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				LeaveApplicationServiceUtil.class, "getLeaveApplicationList",
+				_getLeaveApplicationListParameterTypes1);
+
+			MethodHandler methodHandler = new MethodHandler(methodKey);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (java.util.List<com.adjecti.leave.model.LeaveApplication>)
+				returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	private static Log _log = LogFactoryUtil.getLog(
+		LeaveApplicationServiceHttp.class);
+
+	private static final Class<?>[] _addLeaveApplicationDetailParameterTypes0 =
+		new Class[] {
+			long.class, long.class, long.class, String.class, String.class,
+			boolean.class, boolean.class, String.class, String.class,
+			long.class, String.class, String.class, String.class
+		};
+	private static final Class<?>[] _getLeaveApplicationListParameterTypes1 =
+		new Class[] {};
+
 }

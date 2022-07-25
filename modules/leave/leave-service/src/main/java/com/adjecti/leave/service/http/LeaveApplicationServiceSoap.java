@@ -14,9 +14,16 @@
 
 package com.adjecti.leave.service.http;
 
+import com.adjecti.leave.service.LeaveApplicationServiceUtil;
+
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+import java.rmi.RemoteException;
+
 /**
  * Provides the SOAP utility for the
- * <code>com.adjecti.leave.service.LeaveApplicationServiceUtil</code> service
+ * <code>LeaveApplicationServiceUtil</code> service
  * utility. The static methods of this class call the same methods of the
  * service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
@@ -56,4 +63,53 @@ package com.adjecti.leave.service.http;
  */
 @Deprecated
 public class LeaveApplicationServiceSoap {
+
+	public static com.adjecti.leave.model.LeaveApplicationSoap
+			addLeaveApplicationDetail(
+				long leaveReasonId, long employeeId, long leaveTypeId,
+				String startDate, String endDate, boolean startInHalfDay,
+				boolean endInHalfDay, String actualJoiningDate, String remark,
+				long documentId, String status, String reportingManager,
+				String joinInHalfDay)
+		throws RemoteException {
+
+		try {
+			com.adjecti.leave.model.LeaveApplication returnValue =
+				LeaveApplicationServiceUtil.addLeaveApplicationDetail(
+					leaveReasonId, employeeId, leaveTypeId, startDate, endDate,
+					startInHalfDay, endInHalfDay, actualJoiningDate, remark,
+					documentId, status, reportingManager, joinInHalfDay);
+
+			return com.adjecti.leave.model.LeaveApplicationSoap.toSoapModel(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.adjecti.leave.model.LeaveApplicationSoap[]
+			getLeaveApplicationList()
+		throws RemoteException {
+
+		try {
+			java.util.List<com.adjecti.leave.model.LeaveApplication>
+				returnValue =
+					LeaveApplicationServiceUtil.getLeaveApplicationList();
+
+			return com.adjecti.leave.model.LeaveApplicationSoap.toSoapModels(
+				returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	private static Log _log = LogFactoryUtil.getLog(
+		LeaveApplicationServiceSoap.class);
+
 }

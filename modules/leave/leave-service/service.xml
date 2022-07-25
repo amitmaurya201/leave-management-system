@@ -69,7 +69,7 @@
 
 		<column name="leaveCode" type="String" />
 		<column name="leaveName" type="String" />
-		<column name="count" type="int" />
+		<column name="count" type="float" />
 		
 
 		<!-- Order -->

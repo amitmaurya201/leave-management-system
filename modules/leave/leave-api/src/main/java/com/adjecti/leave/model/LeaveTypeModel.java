@@ -239,13 +239,13 @@ public interface LeaveTypeModel
 	 *
 	 * @return the count of this leave type
 	 */
-	public int getCount();
+	public float getCount();
 
 	/**
 	 * Sets the count of this leave type.
 	 *
 	 * @param count the count of this leave type
 	 */
-	public void setCount(int count);
+	public void setCount(float count);
 
 }

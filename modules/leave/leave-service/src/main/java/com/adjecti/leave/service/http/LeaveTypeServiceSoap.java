@@ -65,7 +65,7 @@ import java.rmi.RemoteException;
 public class LeaveTypeServiceSoap {
 
 	public static com.adjecti.leave.model.LeaveTypeSoap createLeaveType(
-			String leaveCode, String leaveName, int count)
+			String leaveCode, String leaveName, float count)
 		throws RemoteException {
 
 		try {
@@ -132,7 +132,7 @@ public class LeaveTypeServiceSoap {
 	}
 
 	public static com.adjecti.leave.model.LeaveTypeSoap updateLeaveType(
-			String leaveCode, long leaveTypeId, String leaveName, int count)
+			String leaveCode, long leaveTypeId, String leaveName, float count)
 		throws RemoteException {
 
 		try {

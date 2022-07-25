@@ -32,7 +32,7 @@ public class LeaveTypeServiceWrapper
 
 	@Override
 	public com.adjecti.leave.model.LeaveType createLeaveType(
-			String leaveCode, String leaveName, int count)
+			String leaveCode, String leaveName, float count)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			   com.liferay.portal.kernel.exception.SystemException {
 
@@ -72,7 +72,7 @@ public class LeaveTypeServiceWrapper
 
 	@Override
 	public com.adjecti.leave.model.LeaveType updateLeaveType(
-			String leaveCode, long leaveTypeId, String leaveName, int count)
+			String leaveCode, long leaveTypeId, String leaveName, float count)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			   com.liferay.portal.kernel.exception.SystemException {
 
