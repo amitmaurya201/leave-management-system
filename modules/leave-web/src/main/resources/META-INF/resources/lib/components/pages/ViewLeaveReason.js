@@ -114,7 +114,7 @@ return (<div>
 	        contentLabel="Example Modal"
 	      >
 	        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Update Leave Reason</h2>
-	        <form>   
+	        <form onSubmit=>   
 	      
 	        	<input type="text" className="form-control" value={leaveobj.leaveReasonCode} /> <br></br>
 	        	<input type="text" className="form-control" value={leaveobj.leaveReasonDescription} /><br></br>  		 
@@ -130,6 +130,5 @@ return (<div>
 
 }      
 
-	
 	
 export default ViewLeaveReason; 
