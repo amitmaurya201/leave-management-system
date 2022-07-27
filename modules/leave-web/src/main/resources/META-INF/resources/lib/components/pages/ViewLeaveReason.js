@@ -4,6 +4,7 @@ import {useState ,useEffect} from "react";
 import ReactDOM from "react-dom";
 import AddLeaveReason from './AddLeaveReason';
 import Modal from 'react-modal';
+
 const customStyles = {
 		  content: {
 		    top: '50%',
@@ -24,12 +25,17 @@ const [modalIsOpen, setIsOpen] = React.useState(false);
 const [leaveReason , setLeaveReason]= useState([]);
 const [leaveobj , setLeaveobj]= useState({});
 const[status,setStatus]=useState(true);
+const[leaveReasonCode, setLeaveReasonCode]=useState("");
+const[leaveReasonDescription, setLeaveReasonDescription]=useState("");
+const [leaveReasonId, setLeaveReasonId]=useState("");
+
 function openModal(id) {
 	 const newItem=leaveReason.find((leave)=>{
 		   return leave.leaveReasonId==id})
-	 setLeaveobj(newItem);	   
+	 setLeaveobj(newItem);	
+	 setLeaveReasonId(newItem.leaveReasonId);
 	 setIsOpen(true);
-	 console.log(leaveobj.leaveReasonCode);
+	 console.log(leaveReasonId);
   }
 
   function afterOpenModal() {
@@ -42,7 +48,6 @@ function openModal(id) {
   }
 
 
-useEffect(() => {
     const fetchData =  () => {
   axios({
 	        method: 'get',
@@ -55,24 +60,53 @@ useEffect(() => {
 	  .catch((error)=> {
 		  console.log(error);
 	  })};
-	  fetchData();
+	useEffect(() => {
+
+		fetchData();
+
 	 
    },[]);
+	const updateData=()=>{
+		axios({
+			method:'post',
+			url:'http://localhost:8080/api/jsonws/leave.leavereason/update-leave-reason/leave-reason-id/'+leaveReasonId+'/leave-reason-code/'+leaveReasonCode+'/leave-reason-description/'+leaveReasonDescription+'/?p_auth='+Liferay.authToken
+		})
+		.then((res)=>{
+			console.log(res.data);
+			
+		})
+		.catch((error)=>{
+			console.log(error);
+			
+		})}
+	const submitForm=(e)=>{
+		//e.preventDefault();
+		
+		updateData();
+		
+	}
 
- function handleRemove(id)
- {
+
+
+ function deleteReason(id) {
 	console.log(id);
-  
+
+	 let text1 = "Are you sure to delete ?";
+     if(confirm(text1)==true){
+	
+ 
     fetch(`http://localhost:8080/api/jsonws/leave.leavereason/delete-leave-reason/leave-reason-id/${id}/?p_auth=`+Liferay.authToken,{
     	method:'DELETE'
     }).then((result)=>{
     	result.json().then((resp)=>{
-    		console.warn(resp)
+			console.warn(resp)
+				  fetchData();
     	})
     		
     })  
   }
-
+}
+ 
 return (<div>
 		
 		{status?<span>
@@ -97,7 +131,8 @@ return (<div>
 				    <td>{index+1}</td>
 				    <td>{leave.leaveReasonCode}</td>
 				    <td>{leave.leaveReasonDescription}</td>
-				    <td><button type="button" className="btn btn-danger" onClick={()=>{handleRemove(leave.leaveReasonId)}} >Delete</button>
+
+				    <td><button type="button" class="btn btn-danger" onClick={()=>{deleteReason(leave.leaveReasonId)}} >Delete</button>
 				    <br></br>
 				    <button type="button" onClick={()=>{openModal(leave.leaveReasonId)}} className="btn btn-primary" >Edit</button></td>
 				  </tr>
@@ -111,24 +146,22 @@ return (<div>
 	        onAfterOpen={afterOpenModal}
 	        onRequestClose={closeModal}
 	        style={customStyles}
-	        contentLabel="Example Modal"
-	      >
+	        contentLabel="Example Modal">
 	        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Update Leave Reason</h2>
-	        <form onSubmit=>   
-	      
-	        	<input type="text" className="form-control" value={leaveobj.leaveReasonCode} /> <br></br>
-	        	<input type="text" className="form-control" value={leaveobj.leaveReasonDescription} /><br></br>  		 
-	          <button className= "btn btn-primary">Submit</button>
-	          <button className= "btn btn-info" onClick={closeModal}>close</button>
-	      
-	        </form>
-		
+	        <form onSubmit={submitForm} >   
+	      <input type="hidden" className="form-control" defaultValue={leaveobj.leaveReasonId} /><br></br>
+	        	<input type="text" className="form-control"  onChange={(e)=>{setLeaveReasonCode(e.target.value)}} defaultValue={leaveobj.leaveReasonCode} /> <br></br>
+	        	<input type="text" className="form-control" onChange={(e)=>{setLeaveReasonDescription(e.target.value)}} defaultValue={leaveobj.leaveReasonDescription} /><br></br>  
+	          
+	        	<div>
+	            <button type="submit"  value="Submit" className= "btn btn-primary">Submit</button>
+	          </div>
+	          <button className= "btn btn-info" onClick={closeModal}>close</button>    
+	        </form>		
 	      </Modal>
 	     
         </div>	
 );
 
-}      
-
-	
+}    	
 export default ViewLeaveReason; 
