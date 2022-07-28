@@ -8,7 +8,7 @@ const ViewLeaveForm = () => {
 	let [status, setStatus] = useState(true);
 	const [leaveType, setLeaveType] = useState([]);
 	const getLeaveTypeList = () => {
-		axios({
+		axios({         
 			method: 'get',
 			url: 'http://localhost:8080/api/jsonws/leave.leavetype/get-leave-type-list/?p_auth=' + Liferay.authToken
 		})
