@@ -1,16 +1,46 @@
-import React from "react";
+/*import React from "react";
 import axios from 'axios';
 import { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 
 
-
-
-
 const LeaveApplication = () => {
 
+	const [employeeId, setEmployeeId] = useState("");
+    const [leaveReasonId, setLeaveReasonId] = useState("");
+    const [leaveTypeId, setLeaveTypeId] = useState("");
+    const [startDate, setStartDate] = useState("");
+    const [endDate, setEndDate] = useState("");
+    const [startInHalfDay, setStartInHalfDay] = useState(false);
+    const [startInEndDay, setStartInEndDay] = useState(false);
+    const [actualJoiningDate, setActualJoiningDate] = useState("");
+    const [remark, setRemark] = useState("");
+    const [reportingManager, setReportingManager] = useState("");
+    const [documentId, setDocumentId] = useState("");
+    const [joinInHalfDay, setJoinInHalfDay] = useState("");
+    
+    
+    
+    
+    const startInHalfDayHandleChange = () => {
+    	setStartInHalfDay(!startInHalfDay);
+    };
 
+    const startInEndDayHandleChange = () => {
+    	setStartInEndDay(!startInEndDay);
+    };
 	
+    const saveLeaveApplication = () => {
+        alert(startDate + endDate + startInHalfDay + startInEndDay + remark + actualJoiningDate + status + reportingManager)
+        axios.post(
+            `http://localhost:8080/api/jsonws/leave.leaveapplication/add-leave-application-detail/leave-reason-id/${leaveReasonId}/employee-id/${employeeId}/leave-type-id/${leaveTypeId}/start-date/${startDate}/end-date/${endDate}/start-in-half-day/${startInHalfDay}/end-in-half-day/${startInEndDay}/actual-joining-date/${actualJoiningDate}/remark/${remark}/document-id/${documentId}/status/${status}/reporting-manager/${reportingManager}/join-in-half-day/${joinInHalfDay}
+             /?p_auth=`+ Liferay.authToken
+        )
+            .then((res) => {
+                console.log(res.data);
+            })
+    }
+
 	const [leaveType, setLeaveType] = useState([]);
 	const getLeaveTypeList = () => {
 		axios({
@@ -82,39 +112,39 @@ const LeaveApplication = () => {
     <input type="text" class="form-control" id="exampleInputPassword1" placeholder="0" readOnly/>
   </div><br></br>
   <label for="exampleInputPassword1"><b>Start Date</b></label>
-  <input type="date" class="form-control" id="exampleInputPassword1" />
+  <input type="date" class="form-control" name="startDate" onChange={e=>setStartDate(e.target.value)} />
   <br></br>
   <label for="exampleInputPassword1"><b>End Date</b></label>
-  <input type="date" class="form-control" id="exampleInputPassword1" />
+  <input type="date" class="form-control" name="endDate" onChange={e=>setEndDate(e.target.value)} />
   <br></br>
   <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"/>
+  <input class="form-check-input" type="checkbox" name="startInHalfDay" value="option1" onChange={e=>setStartDate(e.target.value)}/>
   <label class="form-check-label" for="inlineCheckbox1">Start In Half Day</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
+  <input class="form-check-input" type="checkbox" name="startInEndDay" value="option2" onChange={e=>setStartInEndDay(e.target.value)}/>
   <label class="form-check-label" for="inlineCheckbox2">End In Half Day</label>
 </div><br></br>
 <br></br>
 <label for="exampleInputPassword1"><b>Actual Joining Date</b></label>
-  <input type="date" class="form-control" id="exampleInputPassword1" />
+  <input type="date" class="form-control" name"actualJoiningDate" />
   <br></br>
   <label for="exampleInputEmail1"><b>Join In Half Day</b></label><br></br>
 
-<select class="form-select form-control" aria-label="Default select example">
+<select class="form-select form-control" onChange={e=>setJoinInHalfDay(e.target.value)}>
   <option selected>Select</option>
-  <option value="1">Half Day</option>
-  <option value="2">Full Day</option>
+  <option value="No">Half Day</option>
+  <option value="Yes">Full Day</option>
   
 </select>
 <br></br>
 <div class="form-group">
     <label for="exampleInputEmail1"><b>Remark</b></label>
-    <input type="text" class="form-control" id="exampleInputEmail1"  placeholder=" "/>
+    <input type="text" class="form-control" name="remark" placeholder=" " onChange={e=>setRemark(e.target.value)}/>
   </div><br></br>
   <label for="exampleInputEmail1"><b>Leave Reason</b></label><br></br>
 
-<select class="form-select form-control" aria-label="Default select example">
+<select class="form-select form-control" onChange={e=>setLeaveReasonId(e.target.value)}>
   <option selected>Select</option>
   {leaveReason.map((leave, index) => {
 		return (
@@ -127,15 +157,15 @@ const LeaveApplication = () => {
 <br></br>
 <div class="mb-3">
   <label for="formFile" class="form-label"><b>Attach Document</b></label>
-  <input class="form-control" type="file" id="formFile"/>
+  <input class="form-control" type="file" id="formFile" />
 </div><br></br>
 <label for="exampleInputEmail1"><b>Reporting Manager</b></label><br></br>
 
-<select class="form-select form-control" aria-label="Default select example">
+<select class="form-select form-control" onChange={e=>setReportingManager(e.target.value)}>
   <option selected>Select</option>
-  <option value="1">Amit Sir</option>
-  <option value="2">Deepanshu Sir</option>
- <option value="2">Divya Ma'am</option>
+  <option>Amit Sir</option>
+  <option>Deepanshu Sir</option>
+ <option>Divya Ma'am</option>
 </select>
 <br></br>
 <br></br>
@@ -145,4 +175,4 @@ const LeaveApplication = () => {
 </div>
 );
 };
-export default LeaveApplication; 
+export default LeaveApplication; */

@@ -22,7 +22,6 @@ function App() {
 
     <Route exact path="/web/guest/leave-app/-/leaveapplication_INSTANCE_1BuZmwhraoDu/homes" element={<Home />}></Route>
     <Route exact path="/web/guest/leave-app/-/leaveapplication_INSTANCE_1BuZmwhraoDu/view-employee" element={<ViewEmployee />}></Route>
-    <Route exact path="/web/guest/leave-app/-/leaveapplication_INSTANCE_1BuZmwhraoDu/leave-application" element={<LeaveApplication />}></Route>
     <Route exact path="/web/guest/leave-app/-/leaveapplication_INSTANCE_1BuZmwhraoDu/view-reason" element={<ViewLeaveReason />}></Route>
     <Route exact path="/web/guest/leave-app/-/leaveapplication_INSTANCE_1BuZmwhraoDu/view-leave-type" element={<ViewLeaveType />}></Route>
     <Route exact path="/web/guest/leave-app/-/leaveapplication_INSTANCE_1BuZmwhraoDu/schedule-Leave" element={<ScheduleLeave />}></Route>

@@ -15,7 +15,6 @@ return (
      <a class="nav-link " href="/web/guest/leave-app/-/leaveapplication_INSTANCE_1BuZmwhraoDu/view-employee"><b>Employee</b></a>
       <a class="nav-link" href="/web/guest/leave-app/-/leaveapplication_INSTANCE_1BuZmwhraoDu/view-leave-type"><b>Leave Type</b></a>
       <a class="nav-link" href="/web/guest/leave-app/-/leaveapplication_INSTANCE_1BuZmwhraoDu/view-reason"><b> Leave Reason</b></a>
-      <a class="nav-link" href="/web/guest/leave-app/-/leaveapplication_INSTANCE_1BuZmwhraoDu/leave-application"><b>Apply Leave</b></a>
       <a class="nav-link" href="/web/guest/leave-app/-/leaveapplication_INSTANCE_1BuZmwhraoDu/schedule-Leave"><b>Schedule Leave</b></a>
       <a class="nav-link" href="/web/guest/leave-app/-/leaveapplication_INSTANCE_1BuZmwhraoDu/dropdown"><b>Leave Summary</b></a>
     </div>    
